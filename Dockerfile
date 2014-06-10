@@ -1,6 +1,6 @@
 
 #
-# Node.js v0.11.10
+# Node.js v0.11.13
 #
 # VERSION 0.0.1
 #
@@ -27,7 +27,7 @@ RUN apt-get install -y make gcc g++ python git libssl-dev
 #
 
 RUN git clone https://github.com/joyent/node.git /usr/src/node/
-RUN cd /usr/src/node && git checkout v0.11.10 && ./configure && make && make install
+RUN cd /usr/src/node && git checkout v0.11.13 && ./configure && make && make install
 
 #
 # Clean up
