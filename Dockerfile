@@ -1,25 +1,19 @@
 
 #
-# Node.js v0.11.13
+# Node.js v0.11.14
 #
-# VERSION 0.0.1
+# VERSION 0.0.3
 #
 
-FROM ubuntu:12.10
+FROM ubuntu:14.04
 MAINTAINER Marcus André <hello@marcusandre.de>
+ENV VERSION 0.11.14
 
 #
-# Update OS
+# System
 #
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu quantal main universe" > /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get upgrade -y
-
-#
-# Install dependencies
-#
-
+RUN apt-get update -qq
 RUN apt-get install -y make gcc g++ python git libssl-dev
 
 #
@@ -27,7 +21,7 @@ RUN apt-get install -y make gcc g++ python git libssl-dev
 #
 
 RUN git clone https://github.com/joyent/node.git /usr/src/node/
-RUN cd /usr/src/node && git checkout v0.11.13 && ./configure && make && make install
+RUN cd /usr/src/node && git checkout v$VERSION && ./configure && make && make install
 
 #
 # Clean up
@@ -39,6 +33,6 @@ RUN rm -fr /usr/src/node
 # Entry
 #
 
-CMD ["/bin/bash"]
+CMD ["node"]
 
 # Usage: docker run -t -i $IMAGE
