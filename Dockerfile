@@ -2,7 +2,7 @@
 #
 # Node.js v0.11.14
 #
-# VERSION 0.0.3
+# VERSION 0.0.4
 #
 
 FROM ubuntu:14.04
