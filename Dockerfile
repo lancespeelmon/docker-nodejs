@@ -14,14 +14,13 @@ ENV VERSION 0.11.14
 #
 
 RUN apt-get update -qq
-RUN apt-get install -y make gcc g++ python git libssl-dev
+RUN apt-get install -y make gcc g++ python curl libssl-dev
 
 #
 # Install node
 #
 
-RUN git clone https://github.com/joyent/node.git /usr/src/node/
-RUN cd /usr/src/node && git checkout v$VERSION && ./configure && make && make install
+RUN curl -L# http://nodejs.org/dist/v$VERSION/node-v$VERSION-linux-x64.tar.gz | tar -zx --strip 1 -C /usr/local
 
 #
 # Clean up
