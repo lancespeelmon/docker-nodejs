@@ -34,4 +34,4 @@ RUN rm -fr /usr/src/node
 
 CMD ["node"]
 
-# Usage: docker run -t -i $IMAGE
+# Usage: docker run --rm -it $IMAGE
